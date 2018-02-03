@@ -1,2 +1,4 @@
 ---
 # defaults file for docker-ce-common
+user_for_docker:
+  - "{{ lookup('env', 'USER') }}"

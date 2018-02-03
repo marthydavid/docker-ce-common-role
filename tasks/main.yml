@@ -25,8 +25,16 @@
     - start docker    
   register: docker_ce_installed
 
+- name: add docker group
+  group:
+    name: docker
+    state: present
+
 - name: add user to docker group
-  command: usermod -aG docker {{ ansible_user }}
+  user:
+    name: "{{ docker_users }}"
+    groups: docker
+    append: yes
 
 - name: add bash_completion package
   yum:

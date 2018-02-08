@@ -1,21 +1,6 @@
 ---
 # tasks file for common
-- name: install epel release
-  yum: 
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items:
-    - "{{ yum_epel_release }}"
-
-- name: install stuff
-  yum:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  with_items:
-    - "{{ prerequisite_for_repo }}"
-
-- name: configure repo
-  command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+- include_tasks: "{{ansible_distribution}}".yml
 
 - name: install docker-ce
   yum:

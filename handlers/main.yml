@@ -2,7 +2,7 @@
 # handlers file for common
 
 - name: start docker
-  systemd:
+  service:
     name: docker
     state: started
     enabled: yes

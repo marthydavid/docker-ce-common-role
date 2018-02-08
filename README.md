@@ -1,1 +1,0 @@
-[![Ansible Role](https://img.shields.io/ansible/role/9594.svg?maxAge=2592000)](https://galaxy.ansible.com/marthydavid/docker-ce-common/)

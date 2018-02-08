@@ -8,4 +8,4 @@ apt_key:
   - { url: "https://download.docker.com/linux/ubuntu/gpg", state: present }
 
 apt_repo:
-  - { repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu "{{ansible_lsb.codename}}" stable', state: present }
+  - { repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_lsb.codename}} stable', state: present }

@@ -1,4 +1,4 @@
-prereq_packages:
+prerequisite_for_repo:
   - { name:  apt-transport-https, state: latest }
   - { name:  ca-certificates, state: latest }
   - { name:  curl, state: latest }

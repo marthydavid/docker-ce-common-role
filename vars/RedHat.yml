@@ -4,7 +4,7 @@
     - { name: 'epel-release', state: 'latest'}
   
   
-  prerequisite_for_repo:
+  prereq_for_CentOS:
     - { name: 'yum-utils', state: 'present' }
     - { name: 'device-mapper-persistent-data', state: 'present' }
     - { name: 'lvm2', state: 'present' }

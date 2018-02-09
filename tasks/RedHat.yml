@@ -25,13 +25,20 @@
     - "{{ prereq_for_Fedora }}"
   when: ansible_distribution == "Fedora"
 
-- name: configure repo
+- name: Repo installed allready?
+  stat:
+    path: /etc/yum.repos.d/docker-ce.repo
+  register: repo
+
+- name: configure repo for CentOS
+  become: true
   command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-  when: ansible_distribution == "CentOS"
+  when: ansible_distribution == "CentOS" and repo.stat.exists
 
 - name: configure repo for Fedora
-  command: sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-  when: ansible_distribution == "Fedora"
+  become: true
+  command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+  when: ansible_distribution == "Fedora" and repo.stat.exsits
 
 - name: add bash_completion package
   yum:

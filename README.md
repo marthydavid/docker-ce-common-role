@@ -1,5 +1,5 @@
 # Ansible Role: Docker CE
-[![Travis branch](https://img.shield.io/travis/marthydavid/docker-ce-common-role/master.svg)](https://travis-ci.org/marthydavid/docker-ce-common-role) [![Ansible Role](https://img.shields.io/ansible/role/23628.svg)](https://galaxy.ansible.com/marthydavid/docker-ce)
+[![Travis branch](https://img.shields.io/travis/marthydavid/docker-ce-common-role/master.svg)](https://travis-ci.org/marthydavid/docker-ce-common-role) [![Ansible Role](https://img.shields.io/ansible/role/23628.svg)](https://galaxy.ansible.com/marthydavid/docker-ce)
 
 An Ansible Role that installs Docker CE on RHEL/CentOS, Fedora, Debian/Ubuntu
 

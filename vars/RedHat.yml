@@ -12,3 +12,6 @@
   yum_bash_completion:
     - { name: 'bash-completion', state: 'present'}
     - { name: 'bash-completion-extras', state: 'present'}
+
+  prereq_for_Fedora:
+    - {name: 'dnf-plugins-core',state: 'present'}

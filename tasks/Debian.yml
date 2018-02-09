@@ -1,0 +1,52 @@
+- include_vars: "{{ansible_of_family}}.yml"
+
+- name: Install prereq for Ubuntu
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ prereq_for_ubuntu }}"
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install prereq for Debian
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ prereq_for_debian }}"
+  when: ansible_distribution == "Debian"
+
+- name: Add GPG key for Ubuntu
+  apt_key:
+    url: "{{ item.url }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ apt_key_ubuntu }}"
+  when: ansible_distribution == "Ubuntu"
+
+- name: Add GPG key for Debian
+  apt_key:
+    url: "{{ item.url }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ apt_key_debian }}"
+  when: ansible_distribution == "Debian"
+
+
+- name: Add Repo for Ubuntu
+  apt_repository:
+    repo: "{{ item.repo }}"
+    state: "{{ item.state }}"
+    update_cache: yes
+  with_items:
+    - "{{ apt_repo_ubuntu }}"
+  when: ansible_distribution == "Ubuntu"
+
+- name: Add Repo for Debian
+  apt_repository:
+    repo: "{{ item.repo }}"
+    state: "{{ item.state }}"
+    update_cache: yes
+  with_items:
+    - "{{ apt_repo_debian }}"
+  when: ansible_distribution == "Debian"

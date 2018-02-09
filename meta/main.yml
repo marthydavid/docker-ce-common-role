@@ -6,13 +6,20 @@ galaxy_info:
   min_ansible_version: 2.2
 
   platforms:
-   - name: EL
+   - name: Fedora
+     versions:
+     - 26
+     - 27
+   - name: CentOS
      versions:
      - 7
    - name: Ubuntu
      versions:
      - xenial
-   
+     
+   - name: Debian
+     versions:
+     - stretch
   galaxy_tags: 
   - docker
   - cloud

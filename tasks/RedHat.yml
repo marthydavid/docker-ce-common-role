@@ -1,0 +1,42 @@
+- include_vars: "{{ansible_os_family}}.yml"
+
+- name: install epel release
+  yum: 
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ yum_epel_release }}"
+  when: ansible_distribution == "CentOS"
+
+
+- name: install prereqs for CentOS
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ prereq_for_CentOS }}"
+  when: ansible_distribution == "CentOS"
+
+- name: install prereqs for Fedora
+  dnf:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ prereq_for_Fedora }}"
+  when: ansible_distribution == "Fedora"
+
+- name: configure repo
+  command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  when: ansible_distribution == "CentOS"
+
+- name: configure repo for Fedora
+  command: sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+  when: ansible_distribution == "Fedora"
+
+- name: add bash_completion package
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ yum_bash_completion }}"
+  when: ansible_distribution == "CentOS"

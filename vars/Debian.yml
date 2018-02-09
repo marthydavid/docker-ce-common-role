@@ -4,12 +4,12 @@ prereq_for_ubuntu:
   - { name: curl, state: latest }
   - { name: software-properties-common, state: latest }
 
-  prereq_for_debian:
-    - { name: apt-transport-https, state: latest }
-    - { name: ca-certificates, state: latest }
-    - { name: curl, state: latest }
-    - { name: gnupg2, state: latest}
-    - { name: software-properties-common, state: latest }
+prereq_for_debian:
+  - { name: apt-transport-https, state: latest }
+  - { name: ca-certificates, state: latest }
+  - { name: curl, state: latest }
+  - { name: gnupg2, state: latest}
+  - { name: software-properties-common, state: latest }
 
 apt_key_ubuntu:
   - { url: "https://download.docker.com/linux/ubuntu/gpg", state: present }

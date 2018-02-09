@@ -1,6 +1,6 @@
 ---
 # tasks file for common
-- include_tasks: "{{ansible_distribution}}.yml"
+- include_tasks: "{{ansible_os_family}}.yml"
 
 - name: install docker-ce
   package:

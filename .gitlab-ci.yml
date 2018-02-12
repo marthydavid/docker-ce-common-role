@@ -1,5 +1,6 @@
 image: williamyeh/ansible:centos7
 test:
   script:
+    - roles_path=../' >ansible.cfg
     - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
 

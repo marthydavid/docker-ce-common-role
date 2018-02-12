@@ -1,0 +1,5 @@
+image: williamyeh/ansible:centos7
+test:
+  script:
+    - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+

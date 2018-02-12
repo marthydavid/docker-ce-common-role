@@ -1,6 +1,6 @@
 image: williamyeh/ansible:centos7
 test:
   script:
-    - ./.gitlab-ci.sh
+    - printf '[defaults]\nroles_path=../' >ansible.cfg 
     - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
 

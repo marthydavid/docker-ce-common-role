@@ -7,7 +7,7 @@
     name: docker-ce
     state: present
   notify:
-    - start docker    
+    - start docker
   register: docker_ce_installed
 
 - name: add docker group
@@ -22,7 +22,7 @@
     append: yes
 
 - name: add bash completion
-  get_url: 
+  get_url:
     url: '{{ bash_completion }}'
     dest: /etc/bash_completion.d/docker
     mode: 0644
